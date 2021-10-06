@@ -1,0 +1,53 @@
+public String intToRoman(int num) {
+        StringBuilder s = new StringBuilder();
+        intToRoman(num, s);
+
+        return s.toString();
+    }
+
+    public void intToRoman(int num, StringBuilder s){
+        if(num>=1000) {
+            s.append("M");
+            intToRoman(num-1000, s);
+        } else if(num>=900) {
+            s.append("CM");
+            intToRoman(num-900, s);
+        } else if(num>=500) {
+            s.append("D");
+            intToRoman(num-500, s);
+        } else if(num>=400) {
+            s.append("CD");
+            intToRoman(num-400, s);
+        }
+        else if(num>=100) {
+            s.append("C");
+            intToRoman(num-100, s);
+        }else if(num>=90) {
+            s.append("XC");
+            intToRoman(num-90, s);
+        }else if(num>=50) {
+            s.append("L");
+            intToRoman(num-50, s);
+        }else if(num>=40) {
+            s.append("XL");
+            intToRoman(num-40, s);
+        }else if(num>=10) {
+            s.append("X");
+            intToRoman(num-10, s);
+        }else if(num>=9) {
+            s.append("IX");
+            intToRoman(num-9, s);
+        }else if(num>=5) {
+            s.append("V");
+            intToRoman(num-5, s);
+        } else if(num>=4) {
+            s.append("IV");
+            intToRoman(num-4, s);
+        } else if(num>=1) {
+            s.append("I");
+            intToRoman(num-1, s);
+        } else if(num==0) {
+            return;
+        }
+        return;
+    }
