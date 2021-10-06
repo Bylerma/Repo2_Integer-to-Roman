@@ -1,53 +1,24 @@
 public String intToRoman(int num) {
+        Map<Integer, String> mappings = new LinkedHashMap<>();
+        mappings.put(1000, "M");
+        mappings.put(900, "CM");
+        mappings.put(500, "D");
+        mappings.put(400, "CD");
+        mappings.put(100, "C");
+        mappings.put(90, "XC");
+        mappings.put(50,"L");
+        mappings.put(40,"XL");
+        mappings.put(10, "X");
+        mappings.put(9, "IX");
+        mappings.put(5, "V");
+        mappings.put(4, "IV");
+        mappings.put(1, "I");
         StringBuilder s = new StringBuilder();
-        intToRoman(num, s);
-
+        for (int leftNum : mappings.keySet()) {
+            while (num>=leftNum) {
+                num -= leftNum;
+                s.append(mappings.get(leftNum));
+            }
+        }
         return s.toString();
-    }
-
-    public void intToRoman(int num, StringBuilder s){
-        if(num>=1000) {
-            s.append("M");
-            intToRoman(num-1000, s);
-        } else if(num>=900) {
-            s.append("CM");
-            intToRoman(num-900, s);
-        } else if(num>=500) {
-            s.append("D");
-            intToRoman(num-500, s);
-        } else if(num>=400) {
-            s.append("CD");
-            intToRoman(num-400, s);
-        }
-        else if(num>=100) {
-            s.append("C");
-            intToRoman(num-100, s);
-        }else if(num>=90) {
-            s.append("XC");
-            intToRoman(num-90, s);
-        }else if(num>=50) {
-            s.append("L");
-            intToRoman(num-50, s);
-        }else if(num>=40) {
-            s.append("XL");
-            intToRoman(num-40, s);
-        }else if(num>=10) {
-            s.append("X");
-            intToRoman(num-10, s);
-        }else if(num>=9) {
-            s.append("IX");
-            intToRoman(num-9, s);
-        }else if(num>=5) {
-            s.append("V");
-            intToRoman(num-5, s);
-        } else if(num>=4) {
-            s.append("IV");
-            intToRoman(num-4, s);
-        } else if(num>=1) {
-            s.append("I");
-            intToRoman(num-1, s);
-        } else if(num==0) {
-            return;
-        }
-        return;
     }
